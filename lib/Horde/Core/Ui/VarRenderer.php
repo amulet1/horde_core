@@ -93,12 +93,17 @@ class Horde_Core_Ui_VarRenderer
      */
     public function render($form, $var, $vars, $isInput = false)
     {
+        //TODO: Get driver name (Html)
+        $method = 'renderHtml' . ($isInput ? 'Input' : 'Display');
+        if (method_exists($var, $method)) {
+           return $var->$method($form, $vars);
+        }
+
         $state = '_renderVar' . ($isInput ? 'Input' : 'Display');
         $method = $state . '_' . $var->type->getTypeName();
         if (!method_exists($this, $method)) {
             $method = $state . 'Default';
         }
-
         return $this->$method($form, $var, $vars);
     }
 
