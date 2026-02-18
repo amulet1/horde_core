@@ -59,7 +59,11 @@ jobs:
 
           # Enable dev stability
           composer config minimum-stability dev
-
+          
+          # Use latest versions
+          BRANCH_NAME=${{ github.head_ref || github.ref_name }}
+          echo composer require --no-install horde/url:dev-$BRANCH_NAME horde/test:dev-$BRANCH_NAME
+          
           # Install project dependencies
           composer install --no-interaction --prefer-dist
 
