@@ -60,12 +60,10 @@ jobs:
           # Enable dev stability
           composer config minimum-stability dev
           
-          # Use latest versions
+          # Install project dependencies [with selected latest versions]
           BRANCH_NAME=$COMPOSER_ROOT_VERSION
-          composer require --no-install --dev horde/url:$BRANCH_NAME horde/test:$BRANCH_NAME
-          
-          # Install project dependencies
-          composer install --no-interaction --prefer-dist
+          composer update --no-interaction --prefer-dist \
+            horde/url:$BRANCH_NAME horde/test:$BRANCH_NAME
 
       - name: Run PHPUnit
         run: phpunit --bootstrap test/bootstrap.php
