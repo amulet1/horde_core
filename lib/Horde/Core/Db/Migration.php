@@ -97,8 +97,11 @@ class Horde_Core_Db_Migration
                         // For now just skip apps and trust the registry to handle them. See above. This should probably be refactored
                         continue;
                     }
+
+                    $name = file_exists("$packageDir/.horde.yml") ? 'horde' : $vendor;
+
                     // hope this doesn't break for three part names
-                    $lcFullname = Horde_String::lower($vendor. '_' . $package);
+                    $lcFullname = Horde_String::lower($name . '_' . $package);
                     $parts = [];
                     foreach (explode('_', $lcFullname) as $part) {
                         $parts[] = ucfirst($part);
