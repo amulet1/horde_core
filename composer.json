@@ -50,6 +50,7 @@
         "horde/group": "^3 || dev-FRAMEWORK_6_0",
         "horde/hashtable": "^2 || dev-FRAMEWORK_6_0",
         "horde/history": "^3 || dev-FRAMEWORK_6_0",
+        "horde/hordeymlfile": "^1 || dev-FRAMEWORK_6_0",
         "horde/http": "^3 || dev-FRAMEWORK_6_0",
         "horde/http_server": "^1 || dev-FRAMEWORK_6_0",
         "horde/injector": "^3 || dev-FRAMEWORK_6_0",
