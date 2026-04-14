@@ -114,8 +114,8 @@ abstract class Horde_Core_LoginTasks_SystemTask_Upgrade extends Horde_LoginTasks
     public function skip()
     {
         /* Skip task until we are authenticated. */
-        return ($this->_auth &&
-                !$GLOBALS['registry']->isAuthenticated(['app' => $this->_app]));
+        return ($this->_auth
+                && !$GLOBALS['registry']->isAuthenticated(['app' => $this->_app]));
     }
 
     /**

@@ -107,10 +107,10 @@ class Horde_Core_Controller_RequestMapper
         // listApps() would return empty on unauthenticated access
         foreach ($registry->listApps(null, false, null) as $app) {
             $default = [
-               'scheme' => $scheme,
-               'host' => $host,
-               'path' => '',
-               'app' => $app,
+                'scheme' => $scheme,
+                'host' => $host,
+                'path' => '',
+                'app' => $app,
             ];
             $applicationUrl = array_merge($default, parse_url($registry->get('webroot', $app)));
             $applicationUrl['path'] = $this->_normalize($applicationUrl['path']);

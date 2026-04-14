@@ -122,15 +122,15 @@ class Horde_Core_Imsp_Utils
             $found = false;
             foreach ($shares as $share) {
                 $params = @unserialize($share->get('params'));
-                if (!empty($params['name']) && $params['name'] == $abook_uid &&
-                    $params['source'] == 'imsp') {
+                if (!empty($params['name']) && $params['name'] == $abook_uid
+                    && $params['source'] == 'imsp') {
                     $found = true;
                     break;
                 }
             }
             if (!$found) {
                 $shareparams = ['name' => $abook_uid,
-                                     'source' => 'imsp'];
+                    'source' => 'imsp'];
 
                 $params['uid'] = hash('md5', mt_rand());
                 $params['name'] = $abook_uid . ' (IMSP)';
@@ -168,8 +168,8 @@ class Horde_Core_Imsp_Utils
             $temp = unserialize($share->get('params'));
             if (is_array($temp)) {
                 $sourceType = $temp['source'];
-                if ($sourceType == 'imsp' &&
-                    array_search($temp['name'], $found_shares) === false) {
+                if ($sourceType == 'imsp'
+                    && array_search($temp['name'], $found_shares) === false) {
                     $share_obj->removeShare($share);
                     $return['removed'][] = $share->getName();
                 }

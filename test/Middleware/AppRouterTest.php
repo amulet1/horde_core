@@ -83,9 +83,7 @@ class AppRouterTest extends TestCase
     private function createTestMiddleware(string $name): MiddlewareInterface
     {
         return new class ($name) implements MiddlewareInterface {
-            public function __construct(private string $name)
-            {
-            }
+            public function __construct(private string $name) {}
 
             public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
             {

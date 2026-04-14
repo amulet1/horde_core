@@ -47,10 +47,10 @@ class Horde_Core_Text_Filter_Highlightquotes extends Horde_Text_Filter_Highlight
      */
     protected function _beginLargeBlock($lines, $qcount)
     {
-        return (($this->_params['citeblock']) ? '<br />' : '') .
-            '<div class="toggleQuoteParent">' .
-            '<span class="widget toggleQuoteShow"' . ($this->_params['hideBlocks'] ? '' : ' style="display:none"') . '>' . htmlspecialchars(sprintf(Horde_Core_Translation::t('[Show Quoted Text - %d lines]'), $qcount)) . '</span>' .
-            '<span class="widget toggleQuoteHide"' . ($this->_params['hideBlocks'] ? ' style="display:none"' : '') . '>' . htmlspecialchars(Horde_Core_Translation::t('[Hide Quoted Text]')) . '</span>';
+        return (($this->_params['citeblock']) ? '<br />' : '')
+            . '<div class="toggleQuoteParent">'
+            . '<span class="widget toggleQuoteShow"' . ($this->_params['hideBlocks'] ? '' : ' style="display:none"') . '>' . htmlspecialchars(sprintf(Horde_Core_Translation::t('[Show Quoted Text - %d lines]'), $qcount)) . '</span>'
+            . '<span class="widget toggleQuoteHide"' . ($this->_params['hideBlocks'] ? ' style="display:none"' : '') . '>' . htmlspecialchars(Horde_Core_Translation::t('[Hide Quoted Text]')) . '</span>';
     }
 
     /**

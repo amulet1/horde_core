@@ -131,8 +131,8 @@ class Horde_Core_Perms_Ui
                     continue;
                 }
 
-                if (isset($app_perms['tree']) &&
-                    is_array(Horde_Array::getElement($app_perms['tree'], $parents))) {
+                if (isset($app_perms['tree'])
+                    && is_array(Horde_Array::getElement($app_perms['tree'], $parents))) {
                     $add_link = $add->add('perm_id', $perm_id)->link(['class' => 'permsAdd', 'title' => Horde_Core_Translation::t('Add Child Permission')]) . $add_img . '</a>';
                     $perms_extra[] = $add_link;
                 } else {
@@ -145,9 +145,9 @@ class Horde_Core_Perms_Ui
                 $perms_extra[] = $delete_link;
                 $name = $this->_corePerms->getTitle($node);
 
-                $expanded = isset($nodes[$current]) &&
-                    strpos($nodes[$current], $node) === 0 &&
-                    $nodes[$current] != $node;
+                $expanded = isset($nodes[$current])
+                    && strpos($nodes[$current], $node) === 0
+                    && $nodes[$current] != $node;
                 $tree->addNode([
                     'id' => $perm_id,
                     'parent' => $parent_id,

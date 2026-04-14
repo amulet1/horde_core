@@ -58,8 +58,8 @@ class Horde_Core_Factory_Nosql extends Horde_Core_Factory_Base
             : $this->getConfig($backend);
 
         /* Determine if we are using the base SQL config. */
-        if (isset($config['driverconfig']) &&
-            ($config['driverconfig'] == 'horde')) {
+        if (isset($config['driverconfig'])
+            && ($config['driverconfig'] == 'horde')) {
             $this->_instances[$sig] = $this->create();
             return $this->_instances[$sig];
         }

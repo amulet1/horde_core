@@ -30,8 +30,8 @@ class Horde_ErrorHandler
                 case 'Horde_Exception_AuthenticationFailure':
                     $auth_app = !$registry->clearAuthApp($error->application);
 
-                    if ($auth_app &&
-                        $registry->isAuthenticated(['app' => $error->application, 'notransparent' => true])) {
+                    if ($auth_app
+                        && $registry->isAuthenticated(['app' => $error->application, 'notransparent' => true])) {
                         break;
                     }
 
@@ -143,7 +143,7 @@ class Horde_ErrorHandler
                     $priority = Horde_Log::NOTICE;
                     break;
 
-                // Former E_STRICT, kept for backwards compatibility.
+                    // Former E_STRICT, kept for backwards compatibility.
                 case 2048:
                     $options['notracelog'] = true;
                     $priority = Horde_Log::DEBUG;
@@ -164,7 +164,7 @@ class Horde_ErrorHandler
      */
     public static function catchFatalError()
     {
-	$error = error_get_last();
+        $error = error_get_last();
 
         if (is_array($error) && $error['type'] == E_ERROR) {
             self::fatal(new ErrorException(

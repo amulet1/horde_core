@@ -21,9 +21,7 @@ class Horde_Core_Auth_Signup_Null extends Horde_Core_Auth_Signup_Base
      * @param mixed $info  Reference to array of parameters to be passed
      *                     to hook.
      */
-    protected function _queueSignup($info)
-    {
-    }
+    protected function _queueSignup($info) {}
 
     /**
      * Checks if a user exists in the system.
@@ -64,9 +62,7 @@ class Horde_Core_Auth_Signup_Null extends Horde_Core_Auth_Signup_Base
      *
      * @param string $username  The user to remove from the signup queue.
      */
-    public function removeQueuedSignup($username)
-    {
-    }
+    public function removeQueuedSignup($username) {}
 
     /**
      * Return a new signup object.

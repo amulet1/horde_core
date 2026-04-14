@@ -248,7 +248,7 @@ abstract class Horde_Core_Block
     {
         $ajax_url = $GLOBALS['registry']->getServiceLink('ajax')
             ->add(['app' => $this->getApp(),
-                        'blockid' => get_class($this)]);
+                'blockid' => get_class($this)]);
         $ajax_url->pathInfo = 'blockUpdate';
 
         return $ajax_url;

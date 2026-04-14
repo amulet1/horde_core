@@ -128,9 +128,9 @@ class Horde_Core_Factory_Alarm extends Horde_Core_Factory_Base
     {
         global $registry, $session;
 
-        if ($this->_ttl &&
-            $session->exists('horde', 'alarm_loaded') &&
-            ((time() - $session->get('horde', 'alarm_loaded')) < $this->_ttl)) {
+        if ($this->_ttl
+            && $session->exists('horde', 'alarm_loaded')
+            && ((time() - $session->get('horde', 'alarm_loaded')) < $this->_ttl)) {
             return;
         }
 

@@ -135,9 +135,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      * this method, and the user may not yet be authenticated. Only tasks
      * necessary to setup the base application environment should be done here.
      */
-    protected function _bootstrap()
-    {
-    }
+    protected function _bootstrap() {}
 
     /**
      * Code to run on successful authentication. This will be called once
@@ -145,9 +143,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      *
      * @throws Horde_Exception
      */
-    protected function _authenticated()
-    {
-    }
+    protected function _authenticated() {}
 
     /**
      * Code run when the application is pushed on the stack for the first
@@ -156,9 +152,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      *
      * @throws Horde_Exception
      */
-    protected function _init()
-    {
-    }
+    protected function _init() {}
 
     /**
      * Application-specific code to run if application auth fails.
@@ -166,9 +160,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      *
      * @param Horde_Exception_PushApp $e  The exception object.
      */
-    public function appInitFailure($e)
-    {
-    }
+    public function appInitFailure($e) {}
 
 
     // Menu generation methods.
@@ -178,18 +170,14 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      *
      * @param Horde_Menu $menu  The menu object.
      */
-    public function menu($menu)
-    {
-    }
+    public function menu($menu) {}
 
     /**
      * Add additional items to the sidebar.
      *
      * @param Horde_View_Sidebar $sidebar  The sidebar object.
      */
-    public function sidebar($sidebar)
-    {
-    }
+    public function sidebar($sidebar) {}
 
 
     // Functions called from Horde's API.
@@ -197,9 +185,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
     /**
      * Tasks to perform at logout.
      */
-    public function logout()
-    {
-    }
+    public function logout() {}
 
     /**
      * Removes user data.
@@ -208,9 +194,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      *
      * @throws Horde_Exception
      */
-    public function removeUserData($user)
-    {
-    }
+    public function removeUserData($user) {}
 
     /**
      * Returns user data for specific (or all) users.
@@ -237,9 +221,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      *
      * @throws Horde_Exception
      */
-    public function restore(Backup\Collection $data)
-    {
-    }
+    public function restore(Backup\Collection $data) {}
 
     /**
      * Returns restore dependencies, i.e. a list of collections types that
@@ -388,9 +370,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      *
      * @param Horde_Notification_Handler $handler  A notification handler.
      */
-    public function setupNotification(Horde_Notification_Handler $handler)
-    {
-    }
+    public function setupNotification(Horde_Notification_Handler $handler) {}
 
 
     // Horde_Alarm methods.
@@ -475,9 +455,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      *
      * @throws Horde_Auth_Exception
      */
-    public function authAddUser($userId, $credentials)
-    {
-    }
+    public function authAddUser($userId, $credentials) {}
 
     /**
      * Update an existing user's credentials.
@@ -488,9 +466,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      *
      * @throws Horde_Auth_Exception
      */
-    public function authUpdateUser($oldId, $newId, $credentials)
-    {
-    }
+    public function authUpdateUser($oldId, $newId, $credentials) {}
 
     /**
      * Deletes a user defined by authentication credentials.
@@ -499,9 +475,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      *
      * @throws Horde_Auth_Exception
      */
-    public function authRemoveUser($userId)
-    {
-    }
+    public function authRemoveUser($userId) {}
 
     /**
      * Does a user exist?
@@ -595,8 +569,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
         Horde_Tree_Renderer_Base $tree,
         $parent = null,
         array $params = []
-    ) {
-    }
+    ) {}
 
 
     // Language change callback.
@@ -607,9 +580,7 @@ class Horde_Registry_Application implements Horde_Shutdown_Task
      * Called only in applications the user is currently authenticated to in
      * the current session.
      */
-    public function changeLanguage()
-    {
-    }
+    public function changeLanguage() {}
 
 
     // NoSQL methods.

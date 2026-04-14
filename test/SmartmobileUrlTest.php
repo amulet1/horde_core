@@ -20,14 +20,14 @@ class SmartmobileUrlTest extends TestCase
         // String parameters now work for convenience (no need to wrap in Horde_Url)
         $url = new SmartmobileUrl('test');
         $url->add(['foo' => 1, 'bar' => 2]);
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
     }
 
     public function testWithoutAnchor()
     {
         $url = new SmartmobileUrl(new Horde_Url('test'));
         $url->add(['foo' => 1, 'bar' => 2]);
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
     }
 
     public function testWithAnchor()
@@ -35,7 +35,7 @@ class SmartmobileUrlTest extends TestCase
         $url = new SmartmobileUrl(new Horde_Url('test'));
         $url->add(['foo' => 1, 'bar' => 2]);
         $url->setAnchor('anchor');
-        $this->assertEquals('test#anchor?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test#anchor?foo=1&amp;bar=2', (string) $url);
     }
 
     public function testBaseUrlWithParameters()
@@ -45,7 +45,7 @@ class SmartmobileUrlTest extends TestCase
         $url = new SmartmobileUrl($base);
         $url->add(['foo' => 1, 'bar' => 2]);
         $url->setAnchor('anchor');
-        $this->assertEquals('test?foo=0#anchor?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=0#anchor?foo=1&amp;bar=2', (string) $url);
     }
 
     public function testBaseUrlWithParametersWithoutAnchor()
@@ -54,6 +54,6 @@ class SmartmobileUrlTest extends TestCase
         $base->add('foo', 0);
         $url = new SmartmobileUrl($base);
         $url->add(['foo' => 1, 'bar' => 2]);
-        $this->assertEquals('test?foo=1&amp;bar=2', (string)$url);
+        $this->assertEquals('test?foo=1&amp;bar=2', (string) $url);
     }
 }

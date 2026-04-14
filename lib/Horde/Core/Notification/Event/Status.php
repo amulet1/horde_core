@@ -58,8 +58,8 @@ class Horde_Core_Notification_Event_Status extends Horde_Notification_Event_Stat
                     }
                 }
 
-                if (!empty($alarm['user']) &&
-                    $GLOBALS['browser']->hasFeature('xmlhttpreq')) {
+                if (!empty($alarm['user'])
+                    && $GLOBALS['browser']->hasFeature('xmlhttpreq')) {
                     try {
                         $url = Horde::url($GLOBALS['registry']->get('webroot', 'horde') . '/services/snooze.php', true);
                     } catch (Horde_Exception $e) {
@@ -114,10 +114,10 @@ class Horde_Core_Notification_Event_Status extends Horde_Notification_Event_Stat
                 return parent::__toString();
         }
 
-        return Horde_Themes_Image::tag($img, ['alt' => $label]) .
-            '<div class="noticetext">' .
-            (is_null($text) ? parent::__toString() : $text) .
-            '</div>';
+        return Horde_Themes_Image::tag($img, ['alt' => $label])
+            . '<div class="noticetext">'
+            . (is_null($text) ? parent::__toString() : $text)
+            . '</div>';
 
     }
 

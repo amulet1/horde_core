@@ -51,8 +51,7 @@ class LdapGroupService implements GroupService
         private string $memberAttr = 'memberUid',
         private array $objectClass = ['posixGroup'],
         private array $newGroupObjectClass = ['posixGroup']
-    ) {
-    }
+    ) {}
 
     /**
      * List all groups
@@ -297,7 +296,7 @@ class LdapGroupService implements GroupService
             $members = $entry->getValue($this->memberAttr);
             $members = is_array($members) ? $members : [];
 
-            $members = array_values(array_filter($members, fn ($m) => $m !== $userId));
+            $members = array_values(array_filter($members, fn($m) => $m !== $userId));
 
             $entry->replace([$this->memberAttr => $members]);
             $entry->update();

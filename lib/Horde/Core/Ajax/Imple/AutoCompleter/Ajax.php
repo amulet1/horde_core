@@ -49,10 +49,10 @@ class Horde_Core_Ajax_Imple_AutoCompleter_Ajax extends Horde_Core_Ajax_Imple_Aut
     {
         $dom_id = $ac->getDomId();
 
-        return 'new Ajax.Autocompleter(' .
-            Horde_Serialize::serialize($dom_id, Horde_Serialize::JSON) . ',' .
-            Horde_Serialize::serialize(strval($ac->getImpleUrl()->setRaw(true)->add(['input' => $dom_id])), Horde_Serialize::JSON) . ',' .
-            '{' . implode(',', $this->_getOpts($ac)) . '})';
+        return 'new Ajax.Autocompleter('
+            . Horde_Serialize::serialize($dom_id, Horde_Serialize::JSON) . ','
+            . Horde_Serialize::serialize(strval($ac->getImpleUrl()->setRaw(true)->add(['input' => $dom_id])), Horde_Serialize::JSON) . ','
+            . '{' . implode(',', $this->_getOpts($ac)) . '})';
     }
 
     /**

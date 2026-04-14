@@ -209,10 +209,10 @@ class Horde_Menu
 
         /* Try to match the item's path against the current script
            filename as well as other possible URLs to this script. */
-        return isset($check_url['path']) &&
-            (($check_url['path'] == $server_url['path']) ||
-             ($check_url['path'] . 'index.php' == $server_url['path']) ||
-             ($check_url['path'] . '/index.php' == $server_url['path']));
+        return isset($check_url['path'])
+            && (($check_url['path'] == $server_url['path'])
+             || ($check_url['path'] . 'index.php' == $server_url['path'])
+             || ($check_url['path'] . '/index.php' == $server_url['path']));
     }
 
 }

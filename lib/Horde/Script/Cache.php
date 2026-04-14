@@ -103,9 +103,7 @@ abstract class Horde_Script_Cache
     /**
      * Perform garbage collection.
      */
-    public function gc()
-    {
-    }
+    public function gc() {}
 
     /**
      * Process a list of scripts.

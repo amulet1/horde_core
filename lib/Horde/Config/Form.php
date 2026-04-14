@@ -149,7 +149,7 @@ class Horde_Config_Form extends Horde_Form
                                 }
                                 break;
                             case 'int':
-                                $this->_vars->set($varname, (string)$configitem['default']);
+                                $this->_vars->set($varname, (string) $configitem['default']);
                                 break;
                             default:
                                 $this->_vars->set($varname, $configitem['default']);

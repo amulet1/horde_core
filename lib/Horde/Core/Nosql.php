@@ -92,8 +92,8 @@ class Horde_Core_Nosql
         foreach ($drivers as $key => $val) {
             if ($mask & self::HAS_INDICES) {
                 if ($val instanceof Horde_Mongo_Collection_Index) {
-                    if (($mask & self::NEEDS_INDICES) &&
-                        $val->checkMongoIndices()) {
+                    if (($mask & self::NEEDS_INDICES)
+                        && $val->checkMongoIndices()) {
                         unset($drivers[$key]);
                     }
                 } else {

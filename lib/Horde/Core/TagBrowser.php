@@ -107,7 +107,7 @@ abstract class Horde_Core_TagBrowser
      */
     public function addTag($tag)
     {
-        $tag_id = (int)current($this->_tagger->getTagIds($tag));
+        $tag_id = (int) current($this->_tagger->getTagIds($tag));
         if (empty($tag_id)) {
             return;
         }

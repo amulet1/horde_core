@@ -61,10 +61,10 @@ class Horde_Core_Ajax_Imple_AutoCompleter_Local extends Horde_Core_Ajax_Imple_Au
     {
         $dom_id = $ac->getDomId();
 
-        return 'new Autocompleter.Local(' .
-            Horde_Serialize::serialize($dom_id, Horde_Serialize::JSON) . ',' .
-            (is_string($this->_search) ? $this->_search : Horde_Serialize::serialize($this->_search, Horde_Serialize::JSON)) . ',' .
-            '{' . implode(',', $this->_getOpts($ac)) . '})';
+        return 'new Autocompleter.Local('
+            . Horde_Serialize::serialize($dom_id, Horde_Serialize::JSON) . ','
+            . (is_string($this->_search) ? $this->_search : Horde_Serialize::serialize($this->_search, Horde_Serialize::JSON)) . ','
+            . '{' . implode(',', $this->_getOpts($ac)) . '})';
     }
 
 }

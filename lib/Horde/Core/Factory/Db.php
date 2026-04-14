@@ -99,8 +99,8 @@ class Horde_Core_Factory_Db extends Horde_Core_Factory_Base
         $sig = hash('md5', serialize($config));
 
         /* Determine if we are using the base SQL config. */
-        if (isset($config['driverconfig']) &&
-            ($config['driverconfig'] == 'horde')) {
+        if (isset($config['driverconfig'])
+            && ($config['driverconfig'] == 'horde')) {
             $this->_instances[$sig] = $this->create();
         } elseif (!isset($this->_instances[$sig])) {
             try {

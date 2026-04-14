@@ -270,9 +270,9 @@ class Horde_Deprecated
      */
     public static function redirect($url)
     {
-        if ($GLOBALS['browser']->isBrowser('msie') &&
-            ($GLOBALS['conf']['use_ssl'] == self::SSL_ONLY_LOGIN) &&
-            (strlen($url) < 160)) {
+        if ($GLOBALS['browser']->isBrowser('msie')
+            && ($GLOBALS['conf']['use_ssl'] == self::SSL_ONLY_LOGIN)
+            && (strlen($url) < 160)) {
             header('Refresh: 0; URL=' . $url);
         } else {
             header('Location: ' . $url);

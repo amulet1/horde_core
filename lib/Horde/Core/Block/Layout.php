@@ -57,9 +57,9 @@ class Horde_Core_Block_Layout
         $found = false;
         foreach ($this->_layout as $cur_row) {
             foreach ($cur_row as $cur_col) {
-                if (isset($cur_col['app']) &&
-                    $cur_col['app'] == $app &&
-                    $cur_col['params']['type2'] == $type) {
+                if (isset($cur_col['app'])
+                    && $cur_col['app'] == $app
+                    && $cur_col['params']['type2'] == $type) {
                     if ($found) {
                         return true;
                     }
@@ -87,11 +87,11 @@ class Horde_Core_Block_Layout
             ->setAnchor('block')
             ->add(
                 [
-                'col' => $col,
-                'row' => $row,
-                'action' => $action,
-                'url' => Horde::signUrl($this->_viewUrl),
-            ]
+                    'col' => $col,
+                    'row' => $row,
+                    'action' => $action,
+                    'url' => Horde::signUrl($this->_viewUrl),
+                ]
             );
     }
 

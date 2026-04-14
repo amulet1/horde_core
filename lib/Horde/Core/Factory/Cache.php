@@ -84,8 +84,8 @@ class Horde_Core_Factory_Cache extends Horde_Core_Factory_Injector
 
         $storage = $this->storage = $this->_getStorage($driver, $sparams);
 
-        if (!empty($conf['cache']['use_memorycache']) &&
-            in_array($driver, ['file', 'sql'])) {
+        if (!empty($conf['cache']['use_memorycache'])
+            && in_array($driver, ['file', 'sql'])) {
             switch (Horde_String::lower($conf['cache']['use_memorycache'])) {
                 case 'hashtable':
                 case 'memcache':

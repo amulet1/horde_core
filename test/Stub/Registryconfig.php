@@ -27,9 +27,7 @@ use Horde_Registry_Registryconfig;
  */
 class Registryconfig extends Horde_Registry_Registryconfig
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     public function detectWebroot($basedir)
     {

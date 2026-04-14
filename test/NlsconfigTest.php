@@ -74,8 +74,8 @@ class NlsconfigTest extends TestCase
     public function testGet()
     {
         $this->markTestIncomplete(
-            'Test for Nlsconfig::__get() not yet implemented. ' .
-            'Should test accessing $nls->languages, $nls->aliases, and $nls->charsets.'
+            'Test for Nlsconfig::__get() not yet implemented. '
+            . 'Should test accessing $nls->languages, $nls->aliases, and $nls->charsets.'
         );
     }
 

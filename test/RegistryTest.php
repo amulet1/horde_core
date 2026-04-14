@@ -166,7 +166,7 @@ class RegistryTest extends TestCase
                 'a1_only' => [
                     'a' => 1,
                     'b' => [
-                    'c' => 2,
+                        'c' => 2,
                     ],
                 ],
                 'a2_only' => [

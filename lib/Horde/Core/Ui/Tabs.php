@@ -41,10 +41,10 @@ class Horde_Core_Ui_Tabs extends Horde_Core_Ui_Widget
 
         $this->_tabs[] = array_merge(
             ['title' => $title,
-                                           'link' => $link->copy(),
-                                           'tabname' => null,
-                                           'img' => null,
-                                           'class' => null],
+                'link' => $link->copy(),
+                'tabname' => null,
+                'img' => null,
+                'class' => null],
             $params
         );
     }
@@ -91,8 +91,8 @@ class Horde_Core_Ui_Tabs extends Horde_Core_Ui_Widget
             if (isset($tab['class'])) {
                 $classes[] = $tab['class'];
             }
-            if ((!is_null($active_tab) && (string)$active_tab == (string)$tab['tabname']) ||
-                ($active == $tab['link'] . $tab['tabname'])) {
+            if ((!is_null($active_tab) && (string) $active_tab == (string) $tab['tabname'])
+                || ($active == $tab['link'] . $tab['tabname'])) {
                 $classes[] = 'horde-active';
             }
             $class = $classes

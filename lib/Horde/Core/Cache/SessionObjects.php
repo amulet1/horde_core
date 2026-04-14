@@ -39,9 +39,7 @@ class Horde_Core_Cache_SessionObjects extends Horde_Core_Cache_Session
 
     /**
      */
-    protected function _initOb()
-    {
-    }
+    protected function _initOb() {}
 
     /**
      */
@@ -52,8 +50,6 @@ class Horde_Core_Cache_SessionObjects extends Horde_Core_Cache_Session
 
     /**
      */
-    protected function _saveStored()
-    {
-    }
+    protected function _saveStored() {}
 
 }

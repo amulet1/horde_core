@@ -142,8 +142,8 @@ abstract class Horde_Core_Auth_Signup_Base
 
         // Check to see if the username already exists in the auth backend or
         // the signup queue.
-        if ($auth->exists($info['user_name']) ||
-            $this->exists($info['user_name'])) {
+        if ($auth->exists($info['user_name'])
+            || $this->exists($info['user_name'])) {
             throw new Horde_Exception(sprintf(Horde_Core_Translation::t('Username "%s" already exists.'), $info['user_name']));
         }
     }

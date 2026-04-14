@@ -125,9 +125,9 @@ class Horde_Script_File
 
             case 'tag':
             case 'tag_full':
-                return '<script type="text/javascript" src="' .
-                    (($name == 'tag') ? $this->url : $this->url_full) .
-                    '"></script>';
+                return '<script type="text/javascript" src="'
+                    . (($name == 'tag') ? $this->url : $this->url_full)
+                    . '"></script>';
 
             case 'uncompressed':
                 return $this;

@@ -472,10 +472,10 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                             $temp_folder = $this->_getFolder(
                                 Horde_ActiveSync::CLASS_TASKS . ':' . $id,
                                 [
-                                     'class' => Horde_ActiveSync::CLASS_TASKS,
-                                     'primary' => $folder['primary'],
-                                     'display' => $folder['display'],
-                                 ]
+                                    'class' => Horde_ActiveSync::CLASS_TASKS,
+                                    'primary' => $folder['primary'],
+                                    'display' => $folder['display'],
+                                ]
                             );
                             if (!empty($temp_folder)) {
                                 $folders[] = $temp_folder;
@@ -534,8 +534,8 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                     }
                 }
             }
-            if ($this->_version > Horde_ActiveSync::VERSION_TWELVEONE &&
-                $GLOBALS['registry']->hasInterface('contacts')) {
+            if ($this->_version > Horde_ActiveSync::VERSION_TWELVEONE
+                && $GLOBALS['registry']->hasInterface('contacts')) {
                 $folders[] = $this->_getFolder('RI', ['class' => 'RI']);
             }
 
@@ -1057,7 +1057,7 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
 
                 if ($from_ts == 0 && !$ignoreFirstSync) {
                     // Can't use History if it's a first sync
-                    $startstamp = (int)$cutoffdate;
+                    $startstamp = (int) $cutoffdate;
                     $endstamp = time() + 32140800; //60 * 60 * 24 * 31 * 12 == one year
                     try {
                         $changes['add'] = $this->_connector->calendar_listUids($startstamp, $endstamp, $server_id);
@@ -1231,8 +1231,8 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                 break;
 
             case Horde_ActiveSync::CLASS_EMAIL:
-                if (empty($this->_imap) ||
-                    $folder->serverid() == 'OUTBOX') {
+                if (empty($this->_imap)
+                    || $folder->serverid() == 'OUTBOX') {
                     $this->_endBuffer();
                     return [];
                 }
@@ -1272,7 +1272,7 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                         if (empty($sd[0]) && empty($sd[1]) && !empty($cutoffdate)) {
                             // No SOFTDELETE performed, this is likely the first
                             // sync so we must prime the SOFTDELETE values.
-                            $folder->setSoftDeleteTimes((int)$cutoffdate, time());
+                            $folder->setSoftDeleteTimes((int) $cutoffdate, time());
                         } else {
                             if ($sd[1] + 82800 + mt_rand(0, 3600) < time()) {
                                 $soft = true;
@@ -1286,7 +1286,7 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                         $folder = $this->_imap->getMessageChanges(
                             $folder,
                             [
-                                'sincedate' => (int)$cutoffdate,
+                                'sincedate' => (int) $cutoffdate,
                                 'protocolversion' => $this->_version,
                                 'softdelete' => $soft,
                                 'refreshfilter' => $refreshFilter,
@@ -1328,8 +1328,8 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
 
         $results = [];
         foreach ($changes['add'] as $add) {
-            $type = ($folder->collectionClass() == Horde_ActiveSync::CLASS_EMAIL &&
-                     $folder->serverid() == $this->getSpecialFolderNameByType(self::SPECIAL_DRAFTS))
+            $type = ($folder->collectionClass() == Horde_ActiveSync::CLASS_EMAIL
+                     && $folder->serverid() == $this->getSpecialFolderNameByType(self::SPECIAL_DRAFTS))
                 ? Horde_ActiveSync::CHANGE_TYPE_DRAFT
                 : Horde_ActiveSync::CHANGE_TYPE_CHANGE;
             $results[] = [
@@ -1599,9 +1599,9 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                 }
 
                 // Is this from the draft folder?
-                if ($this->_version >= Horde_ActiveSync::VERSION_SIXTEEN &&
-                    !empty($collection['type']) &&
-                    $collection['type'] == Horde_ActiveSync::FOLDER_TYPE_DRAFTS) {
+                if ($this->_version >= Horde_ActiveSync::VERSION_SIXTEEN
+                    && !empty($collection['type'])
+                    && $collection['type'] == Horde_ActiveSync::FOLDER_TYPE_DRAFTS) {
                     $msg->isdraft = true;
                 }
 
@@ -1609,9 +1609,9 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
 
                 // Should we import an iTip response if we have one and we are in
                 // the INBOX?
-                if ($folderid == 'INBOX' &&
-                    $this->_version >= Horde_ActiveSync::VERSION_TWELVE &&
-                    $msg->contentclass == 'urn:content-classes:calendarmessage') {
+                if ($folderid == 'INBOX'
+                    && $this->_version >= Horde_ActiveSync::VERSION_TWELVE
+                    && $msg->contentclass == 'urn:content-classes:calendarmessage') {
 
                     switch ($msg->messageclass) {
                         case 'IPM.Schedule.Meeting.Resp.Pos':
@@ -2135,8 +2135,8 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                     ];
 
                     // Check for draft sync.
-                    if ($this->_version >= Horde_ActiveSync::VERSION_SIXTEEN &&
-                        $folderid == $this->getSpecialFolderNameByType(self::SPECIAL_DRAFTS)) {
+                    if ($this->_version >= Horde_ActiveSync::VERSION_SIXTEEN
+                        && $folderid == $this->getSpecialFolderNameByType(self::SPECIAL_DRAFTS)) {
 
                         // @todo Does this only happen on drafts?
                         if ($message->send) {
@@ -2205,8 +2205,8 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                             ['flagged' => $message->flag->flagstatus]
                         );
                     }
-                    if ($message->propertyExists('categories') &&
-                        $message->categories) {
+                    if ($message->propertyExists('categories')
+                        && $message->categories) {
                         // We *try* to make sure the category is added as a custom
                         // IMAP flag. This might fail in some edge cases, like e.g.
                         // with non-ascii characters.
@@ -2253,19 +2253,19 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
             ob_start();
             try {
                 switch ($type) {
-                case 'gal':
-                    $rows = $this->_searchGal($params->query, $params->options, $params->deepTraversal);
-                    break;
-                case 'mailbox':
-                    $rows = $this->_searchMailbox($params->query, $params->options, $params->deepTraversal);
-                    break;
-                case 'documentlibrary':
-                    foreach ($params->query[0] as $q) {
-                        if (!empty($q['DocumentLibrary:LinkId'])) {
-                            $rows = $this->_connector->files_browse($q['DocumentLibrary:LinkId']);
+                    case 'gal':
+                        $rows = $this->_searchGal($params->query, $params->options, $params->deepTraversal);
+                        break;
+                    case 'mailbox':
+                        $rows = $this->_searchMailbox($params->query, $params->options, $params->deepTraversal);
+                        break;
+                    case 'documentlibrary':
+                        foreach ($params->query[0] as $q) {
+                            if (!empty($q['DocumentLibrary:LinkId'])) {
+                                $rows = $this->_connector->files_browse($q['DocumentLibrary:LinkId']);
+                            }
                         }
-                    }
-                    break;
+                        break;
                 }
             } catch (Horde_ActiveSync_Exception $e) {
                 $this->_logger->err($e->getMessage());
@@ -2719,7 +2719,7 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
     public function autoDiscover($params = [], $version = 1)
     {
         $hooks = $GLOBALS['injector']->getInstance('Horde_Core_Hooks');
-        $url = parse_url((string)Horde::url(null, true));
+        $url = parse_url((string) Horde::url(null, true));
 
         if ($version == 2) {
             if (Horde_String::lower($params['protocol']) == 'autodiscoverv1') {
@@ -2854,8 +2854,8 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                         );
                         if (empty($result['photo'])) {
                             $picture->status = Horde_ActiveSync_Status::NO_PICTURE;
-                        } elseif (!empty($opts['maxpictures']) &&
-                                  $picture_count > $opts['maxpictures']) {
+                        } elseif (!empty($opts['maxpictures'])
+                                  && $picture_count > $opts['maxpictures']) {
                             $picture->status = Horde_ActiveSync_Status::PICTURE_LIMIT_REACHED;
                         } else {
                             $data = $result['photo']['load']['data'];
@@ -3018,8 +3018,8 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
     {
         global $injector;
 
-        if (empty($response['folderid']) || empty($response['requestid']) ||
-            empty($response['response'])) {
+        if (empty($response['folderid']) || empty($response['requestid'])
+            || empty($response['response'])) {
             throw new Horde_ActiveSync_Exception('Invalid meeting response.');
         }
 
@@ -3103,7 +3103,7 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
             $resource = new Horde_Itip_Resource_Identity(
                 $ident,
                 $vEvent->getAttribute('ATTENDEE'),
-                (string)$ident->getFromAddress()
+                (string) $ident->getFromAddress()
             );
             switch ($response['response']) {
                 case Horde_ActiveSync_Request_MeetingResponse::RESPONSE_ACCEPTED:
@@ -3302,8 +3302,8 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
         // @todo remove is_callable for Horde 6(?)
         if (!empty($this->_imap) && is_callable([$this->_imap, 'setOptions'])) {
             $options = [
-                Horde_ActiveSync_Imap_Message::OPTIONS_DECODE_TNEF =>
-                !$this->_device->hasQuirk(Horde_ActiveSync_Device::QUIRK_SUPPORTS_TNEF),
+                Horde_ActiveSync_Imap_Message::OPTIONS_DECODE_TNEF
+                => !$this->_device->hasQuirk(Horde_ActiveSync_Device::QUIRK_SUPPORTS_TNEF),
             ];
             $this->_imap->setOptions($options);
         }
@@ -3463,7 +3463,7 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                     foreach ($imap_folders as $id => $folder) {
                         if ($folder['level'] == $level) {
                             try {
-                                $folders[] = $this->_getMailFolder((string)$id, $imap_folders, $folder);
+                                $folders[] = $this->_getMailFolder((string) $id, $imap_folders, $folder);
                                 ++$cnt;
                             } catch (Horde_ActiveSync_Exception $e) {
                                 $this->_logger->err(sprintf('Problem retrieving %s mail folder', $id));
@@ -3614,9 +3614,9 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
      *
      * @param array $query          A query array. @see self::getSearchResults()
      * @param array $options        The search options (currently ignored).
-     * @param bool  $deepTraversal  If true, traverse sub folders (currently ignored) 
+     * @param bool  $deepTraversal  If true, traverse sub folders (currently ignored)
      *
-     * @return array|null           An array of search results or null on error 
+     * @return array|null           An array of search results or null on error
      *
      * @see self::getSearchResults()
      */
@@ -3630,9 +3630,9 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
      *
      * @param array $query          A query array. @see self::getSearchResults()
      * @param array $options        The search options (partially supported).
-     * @param bool  $deepTraversal  If true, traverse sub folders (currently ignored) 
+     * @param bool  $deepTraversal  If true, traverse sub folders (currently ignored)
      *
-     * @return array|null           An array of search results or null on error 
+     * @return array|null           An array of search results or null on error
      *
      * @see self::getSearchResults()
      */
@@ -3640,8 +3640,8 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
     {
         // If no perms to the GAL, return zero results.
         $perms = $GLOBALS['injector']->getInstance('Horde_Perms');
-        if ($perms->exists('horde:activesync:no_gal') &&
-            $perms->getPermissions('horde:activesync:no_gal', $this->_user)) {
+        if ($perms->exists('horde:activesync:no_gal')
+            && $perms->getPermissions('horde:activesync:no_gal', $this->_user)) {
             return null;
         }
 
@@ -3689,13 +3689,13 @@ class Horde_Core_ActiveSync_Driver extends Horde_ActiveSync_Driver_Base
                 $picture = Horde_ActiveSync::messageFactory('GalPicture');
                 if (empty($row['photo'])) {
                     $picture->status = Horde_ActiveSync_Status::NO_PICTURE;
-                } elseif (!empty($options[Horde_ActiveSync_Request_Search::SEARCH_MAXPICTURES]) &&
-                          $picture_count > $options[Horde_ActiveSync_Request_Search::SEARCH_MAXPICTURES]) {
+                } elseif (!empty($options[Horde_ActiveSync_Request_Search::SEARCH_MAXPICTURES])
+                          && $picture_count > $options[Horde_ActiveSync_Request_Search::SEARCH_MAXPICTURES]) {
                     $picture->status = Horde_ActiveSync_Status::PICTURE_LIMIT_REACHED;
                 } else {
                     $data = $row['photo']['load']['data'];
-                    if (!empty($options[Horde_ActiveSync_Request_Search::SEARCH_MAXSIZE]) &&
-                        strlen($data) > $options[Horde_ActiveSync_Request_Search::SEARCH_MAXSIZE]) {
+                    if (!empty($options[Horde_ActiveSync_Request_Search::SEARCH_MAXSIZE])
+                        && strlen($data) > $options[Horde_ActiveSync_Request_Search::SEARCH_MAXSIZE]) {
                         $picture->status = Horde_ActiveSync_Status::PICTURE_TOO_LARGE;
                     } else {
                         $picture->data = base64_encode($data);

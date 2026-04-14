@@ -74,9 +74,9 @@ class Horde_Core_Factory_Ldap extends Horde_Core_Factory_Base
         try {
             $this->_instances[$sig] = new Horde_Ldap($config);
             try {
-                if (isset($config['bindas']) &&
-                    $config['bindas'] == 'user' &&
-                    $GLOBALS['registry']->getAuth()) {
+                if (isset($config['bindas'])
+                    && $config['bindas'] == 'user'
+                    && $GLOBALS['registry']->getAuth()) {
                     $this->_instances[$sig]->bind(
                         $this->_instances[$sig]->findUserDN($GLOBALS['registry']->getAuth()),
                         $GLOBALS['registry']->getAuthCredential('password')

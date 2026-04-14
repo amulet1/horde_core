@@ -117,9 +117,7 @@ abstract class Horde_Core_Ajax_Application
     /**
      * Application initialization code.
      */
-    protected function _init()
-    {
-    }
+    protected function _init() {}
 
     /**
      */
@@ -144,9 +142,9 @@ abstract class Horde_Core_Ajax_Application
     final public function addHandler($class)
     {
         if (!isset($this->_handlers[$class])) {
-            if (!class_exists($class) ||
-                !($ob = new $class($this)) ||
-                !($ob instanceof Horde_Core_Ajax_Application_Handler)) {
+            if (!class_exists($class)
+                || !($ob = new $class($this))
+                || !($ob instanceof Horde_Core_Ajax_Application_Handler)) {
                 throw new InvalidArgumentException('Bad AJAX handler: ' . $class);
             }
 

@@ -188,7 +188,7 @@ class Horde_Core_Share_Driver
         }
 
         return ['type' => $locktargettype,
-                     'lock' => reset($result)];
+            'lock' => reset($result)];
     }
 
     /**

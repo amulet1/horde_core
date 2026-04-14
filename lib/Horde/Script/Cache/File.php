@@ -108,7 +108,7 @@ class Horde_Script_Cache_File extends Horde_Script_Cache
         $js_path = $js_fs . '/' . $js_filename;
         $js_url = $registry->get('staticuri', 'horde') . '/' . $js_filename;
         if ($full) {
-            $js_url = (string)Horde::url($js_url, true, -1);
+            $js_url = (string) Horde::url($js_url, true, -1);
         }
 
         $out = [$js_url];
@@ -141,9 +141,9 @@ class Horde_Script_Cache_File extends Horde_Script_Cache
         $jsmin = $this->_compress->getMinifier($scripts, $sourcemap_url);
 
         $temp = Horde_Util::getTempFile('staticjs', true, $js_fs);
-        if (!file_put_contents($temp, $jsmin->minify(), LOCK_EX) ||
-            !chmod($temp, 0o777 & ~umask()) ||
-            !rename($temp, $js_path)) {
+        if (!file_put_contents($temp, $jsmin->minify(), LOCK_EX)
+            || !chmod($temp, 0o777 & ~umask())
+            || !rename($temp, $js_path)) {
             Horde::log('Could not write cached JS file to disk.', Horde_Log::EMERG);
         } elseif ($this->_compress->sourcemap_support) {
             file_put_contents($js_path . '.map', $jsmin->sourcemap(), LOCK_EX);

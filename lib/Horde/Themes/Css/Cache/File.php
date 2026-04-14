@@ -50,17 +50,17 @@ class Horde_Themes_Css_Cache_File extends Horde_Themes_Css_Cache
         if (!file_exists($path)) {
             $compress = new Horde_Themes_Css_Compress();
             $temp = Horde_Util::getTempFile('staticcss', true, $js_fs);
-            if (!file_put_contents($temp, $compress->compress($css), LOCK_EX) ||
-                !chmod($temp, 0o777 & ~umask()) ||
-                !rename($temp, $path)) {
+            if (!file_put_contents($temp, $compress->compress($css), LOCK_EX)
+                || !chmod($temp, 0o777 & ~umask())
+                || !rename($temp, $path)) {
                 Horde::log('Could not write cached CSS file to disk.', 'EMERG');
                 return [];
             }
         }
 
         return [
-             Horde::url($registry->get('staticuri', 'horde') . '/' . $filename, true, ['append_session' => -1]),
-         ];
+            Horde::url($registry->get('staticuri', 'horde') . '/' . $filename, true, ['append_session' => -1]),
+        ];
     }
 
     /**

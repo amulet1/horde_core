@@ -34,8 +34,8 @@ class Horde_Core_Alarm_Handler_Notify extends Horde_Alarm_Handler
     {
         global $notification, $registry;
 
-        if (isset($alarm['params']['notify']['show']) &&
-            !isset($alarm['params']['notify']['url'])) {
+        if (isset($alarm['params']['notify']['show'])
+            && !isset($alarm['params']['notify']['url'])) {
             $params = $alarm['params']['notify']['show'];
             $app = $alarm['params']['notify']['show']['__app'];
             unset($params['__app']);
@@ -50,8 +50,8 @@ class Horde_Core_Alarm_Handler_Notify extends Horde_Alarm_Handler
             'horde.alarm',
             ['alarm' => $alarm]
         );
-        if (!empty($alarm['params']['notify']['sound']) &&
-            !isset($this->_soundPlayed[$alarm['params']['notify']['sound']])) {
+        if (!empty($alarm['params']['notify']['sound'])
+            && !isset($this->_soundPlayed[$alarm['params']['notify']['sound']])) {
             $notification->attach('audio');
             $notification->push(
                 $alarm['params']['notify']['sound'],

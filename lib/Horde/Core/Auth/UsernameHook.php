@@ -52,9 +52,7 @@ class Horde_Core_Auth_UsernameHook extends Horde_Auth_Base
 
     /**
      */
-    protected function _authenticate($userId, $credentials)
-    {
-    }
+    protected function _authenticate($userId, $credentials) {}
 
     /**
      */

@@ -44,8 +44,7 @@ class SqlPrefsService implements PrefsService
     public function __construct(
         private Horde_Db_Adapter $db,
         private string $table = 'horde_prefs'
-    ) {
-    }
+    ) {}
 
     /**
      * Get preference value
@@ -122,8 +121,8 @@ class SqlPrefsService implements PrefsService
     public function getAllInScope(string $uid, string $scope): array
     {
         try {
-            $query = 'SELECT pref_name, pref_value FROM ' . $this->table .
-                ' WHERE pref_uid = ? AND pref_scope = ?';
+            $query = 'SELECT pref_name, pref_value FROM ' . $this->table
+                . ' WHERE pref_uid = ? AND pref_scope = ?';
             $result = $this->db->select($query, [$uid, $scope]);
 
             $prefs = [];

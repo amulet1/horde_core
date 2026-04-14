@@ -48,10 +48,10 @@ class Horde_Core_Text_Filter_Emails extends Horde_Text_Filter_Emails
      */
     protected function _regexCallback($matches)
     {
-        if ($this->_params['always_mailto'] ||
-            (!$this->_params['callback'] &&
-             (!($app = $GLOBALS['registry']->hasMethod('mail/compose')) ||
-              !$GLOBALS['registry']->hasPermission($app, Horde_Perms::EDIT)))) {
+        if ($this->_params['always_mailto']
+            || (!$this->_params['callback']
+             && (!($app = $GLOBALS['registry']->hasMethod('mail/compose'))
+              || !$GLOBALS['registry']->hasPermission($app, Horde_Perms::EDIT)))) {
             return parent::_regexCallback($matches);
         }
 
@@ -86,7 +86,7 @@ class Horde_Core_Text_Filter_Emails extends Horde_Text_Filter_Emails
             ? ''
             : ' class="' . $this->_params['class'] . '"';
 
-        return '<a' . $class .' href="' . $href . '"' . $onclick . '>'
+        return '<a' . $class . ' href="' . $href . '"' . $onclick . '>'
             . htmlspecialchars($email) . htmlspecialchars($args_long)
             . '</a>';
     }

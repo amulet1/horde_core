@@ -50,7 +50,7 @@ class Horde_Core_Cli extends Horde_Cli
             switch ($field['_type']) {
                 case 'boolean':
                     $values = [true => 'Yes', false => 'No'];
-                    $default = (int)$default;
+                    $default = (int) $default;
                     break;
                 case 'enum':
                     $values = $field['values'];
@@ -77,8 +77,8 @@ class Horde_Core_Cli extends Horde_Cli
             }
         }
 
-        if (isset($field['switch']) &&
-            !empty($field['switch'][$value]['fields'])) {
+        if (isset($field['switch'])
+            && !empty($field['switch'][$value]['fields'])) {
             foreach ($field['switch'][$value]['fields'] as $sub => $sub_field) {
                 $this->question($vars, $prefix, $sub, $sub_field, $existingAsDefault);
             }

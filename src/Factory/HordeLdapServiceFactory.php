@@ -160,8 +160,8 @@ class HordeLdapServiceFactory
         }
 
         throw new \RuntimeException(
-            'No LDAP configuration found for service: ' .
-            ($service ? "$service" : 'default')
+            'No LDAP configuration found for service: '
+            . ($service ? "$service" : 'default')
         );
     }
 

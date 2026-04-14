@@ -78,9 +78,9 @@ class Horde_Help
                         break;
 
                     case 'view':
-                        if (!empty($views) &&
-                            $val->hasChildNodes() &&
-                            in_array($val->getAttribute('id'), $views)) {
+                        if (!empty($views)
+                            && $val->hasChildNodes()
+                            && in_array($val->getAttribute('id'), $views)) {
                             $this->_processXml($val, []);
                         }
                         break;
@@ -101,8 +101,8 @@ class Horde_Help
         $out = '';
 
         foreach ($this->_xml as $entry) {
-            if (($entry->getAttribute('id') == $id) &&
-                $entry->hasChildNodes()) {
+            if (($entry->getAttribute('id') == $id)
+                && $entry->hasChildNodes()) {
                 foreach ($entry->childNodes as $child) {
                     if ($child instanceof DOMElement) {
                         switch ($child->tagName) {

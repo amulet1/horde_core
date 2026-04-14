@@ -117,7 +117,7 @@ class Horde_Themes_Cache implements Serializable
      */
     protected function _build($app, $theme, $mask)
     {
-        $path = $GLOBALS['registry']->get('themesfs', $app) . '/'. $theme;
+        $path = $GLOBALS['registry']->get('themesfs', $app) . '/' . $theme;
 
         try {
             $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
@@ -309,7 +309,7 @@ class Horde_Themes_Cache implements Serializable
         }
 
         if (isset($data['id']) && ($data['id'] != $this->getCacheId())) {
-            throw new Exception('Cache invalidated for ' . $data['a'] . ': ' . $data['id'] . ' != '.$this->getCacheId());
+            throw new Exception('Cache invalidated for ' . $data['a'] . ': ' . $data['id'] . ' != ' . $this->getCacheId());
         }
 
         $this->_complete = $data['c'];

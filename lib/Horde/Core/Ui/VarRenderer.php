@@ -63,7 +63,7 @@ class Horde_Core_Ui_VarRenderer
         }
 
         $driver = Horde_String::ucfirst(basename($driver));
-        $class = (empty($app) ? 'Horde_Core' : $app) .  '_Ui_VarRenderer_' . $driver;
+        $class = (empty($app) ? 'Horde_Core' : $app) . '_Ui_VarRenderer_' . $driver;
 
         $ok = class_exists($class);
 

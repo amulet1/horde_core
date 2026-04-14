@@ -34,8 +34,8 @@ class Horde_Core_Tree_Renderer_Javascript extends Horde_Core_Tree_Renderer_Html
         $GLOBALS['injector']->getInstance('Horde_PageOutput')->addScriptFile('hordetree.js', 'horde');
 
         /* Check for a javascript session state. */
-        if (($session = $this->getOption('session')) &&
-            isset($_COOKIE[$this->_tree->instance . '_expanded'])) {
+        if (($session = $this->getOption('session'))
+            && isset($_COOKIE[$this->_tree->instance . '_expanded'])) {
             /* Get current session expanded values. */
             $curr = call_user_func($session['get'], $this->_tree->instance, '', Horde_Session::TYPE_ARRAY);
 
@@ -148,8 +148,8 @@ class Horde_Core_Tree_Renderer_Javascript extends Horde_Core_Tree_Renderer_Html
         foreach ($GLOBALS['page_output']->hsl as $val) {
             /* Ignore files that are already loaded before building the
              * tree. */
-            if (($val->app != 'horde') ||
-                !in_array($val->file, ['prototype.js', 'hordetree.js', 'accesskeys.js'])) {
+            if (($val->app != 'horde')
+                || !in_array($val->file, ['prototype.js', 'hordetree.js', 'accesskeys.js'])) {
                 $result->files[] = strval($val->url);
             }
         }

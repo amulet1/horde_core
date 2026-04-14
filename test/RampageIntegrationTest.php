@@ -323,8 +323,7 @@ class RampageIntegrationTest extends TestCase
             public function __construct(
                 private string $name,
                 private array &$tracker
-            ) {
-            }
+            ) {}
 
             public function process(
                 ServerRequestInterface $request,

@@ -44,9 +44,9 @@ class Horde_Core_Smartmobile_Url extends \Horde\Url\Url
             $url = new \Horde\Url\Url();
         } elseif ($url instanceof Horde_Url) {
             // Convert legacy wrapper to modern Url
-            $url = new \Horde\Url\Url((string)$url, $raw);
+            $url = new \Horde\Url\Url((string) $url, $raw);
             // Copy parameters from the wrapper
-            foreach ((array)$url->parameters as $key => $value) {
+            foreach ((array) $url->parameters as $key => $value) {
                 $url->add($key, $value);
             }
         } elseif (is_string($url)) {

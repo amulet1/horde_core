@@ -33,9 +33,9 @@ class Horde_Core_Notification_Listener_SmartmobileStatus extends Horde_Notificat
         // location of original page, or else closing notification reloads
         // previous page (Ticket #11103).
         $GLOBALS['injector']->getInstance('Horde_PageOutput')->addInlineScript([
-            '$(function() {HordeMobile.showNotifications(' .
-            Horde_Serialize::serialize($events, Horde_Serialize::JSON) .
-            ');});',
+            '$(function() {HordeMobile.showNotifications('
+            . Horde_Serialize::serialize($events, Horde_Serialize::JSON)
+            . ');});',
         ]);
     }
 

@@ -60,9 +60,9 @@ abstract class Horde_Core_Ajax_Imple_InPlaceEditor extends Horde_Core_Ajax_Imple
             ];
             $config->ids = new stdClass();
             $config->ids->{$this->getDomId()} = [
-                'load_url' => (string)$load_url,
+                'load_url' => (string) $load_url,
                 'rows' => $this->_params['rows'],
-                'value_url' => (string)$value_url,
+                'value_url' => (string) $value_url,
             ];
 
             if (!empty($this->_params['width'])) {

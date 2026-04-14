@@ -69,8 +69,8 @@ class Horde_Core_Block_Layout_View extends Horde_Core_Block_Layout
             $html .= '<tr>';
 
             foreach ($row as $col_num => $item) {
-                if (isset($covered[$row_num]) &&
-                    isset($covered[$row_num][$col_num])) {
+                if (isset($covered[$row_num])
+                    && isset($covered[$row_num][$col_num])) {
                     continue;
                 }
 
@@ -103,17 +103,17 @@ class Horde_Core_Block_Layout_View extends Horde_Core_Block_Layout
                             include $tplDir . '/portal/block.inc';
                             $html .= ob_get_clean();
 
-                            if ($block->updateable &&
-                                $GLOBALS['browser']->hasFeature('xmlhttpreq')) {
+                            if ($block->updateable
+                                && $GLOBALS['browser']->hasFeature('xmlhttpreq')) {
                                 $refresh_time = $item['params']['params']['_refresh_time']
                                     ?? $interval;
 
                                 if (!empty($refresh_time)) {
-                                    $js[] = 'HordeBlocks.addUpdateableBlock(' .
-                                        '"' . $block->getApp() . '", "' .
-                                        get_class($block) . '", "' .
-                                        $block_id . '", ' .
-                                        intval($refresh_time * 1000) . ')';
+                                    $js[] = 'HordeBlocks.addUpdateableBlock('
+                                        . '"' . $block->getApp() . '", "'
+                                        . get_class($block) . '", "'
+                                        . $block_id . '", '
+                                        . intval($refresh_time * 1000) . ')';
                                 }
                             }
                         } else {

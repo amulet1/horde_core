@@ -26,15 +26,11 @@ class Horde_Core_Tagger_Null extends Horde_Core_Tagger
 {
     /**
      */
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      */
-    public function tag($localId, $tags, $owner, $content_type = null)
-    {
-    }
+    public function tag($localId, $tags, $owner, $content_type = null) {}
 
     /**
      */
@@ -45,15 +41,11 @@ class Horde_Core_Tagger_Null extends Horde_Core_Tagger
 
     /**
      */
-    public function untag($localId, $tags, $content_type = null)
-    {
-    }
+    public function untag($localId, $tags, $content_type = null) {}
 
     /**
      */
-    public function replaceTags($localId, $tags, $owner, $content_type = null)
-    {
-    }
+    public function replaceTags($localId, $tags, $owner, $content_type = null) {}
 
     /**
      */

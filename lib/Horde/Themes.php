@@ -93,9 +93,9 @@ class Horde_Themes
         foreach ($di as $val) {
             $theme_name = null;
 
-            if ($val->isDir() &&
-                !$val->isDot() &&
-                (@include $val->getPathname() . '/info.php')) {
+            if ($val->isDir()
+                && !$val->isDot()
+                && (@include $val->getPathname() . '/info.php')) {
                 $out[strval($val)] = $theme_name;
             }
         }
@@ -128,8 +128,8 @@ class Horde_Themes
 
         $sounds = [];
         foreach ($cache->build() as $val) {
-            if ((strpos($val, 'sounds/') === 0) &&
-                (substr(strrchr($val, '.'), 1) == 'wav')) {
+            if ((strpos($val, 'sounds/') === 0)
+                && (substr(strrchr($val, '.'), 1) == 'wav')) {
                 $sounds[basename($val)] = self::sound(substr($val, 7));
             }
         }

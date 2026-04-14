@@ -44,8 +44,8 @@ class Horde_Registry_Nlsconfig
             'curr_rtl',
         ];
 
-        if (in_array($name, $cached) &&
-            $session->exists('horde', 'nls/' . $name)) {
+        if (in_array($name, $cached)
+            && $session->exists('horde', 'nls/' . $name)) {
             return $session->get('horde', 'nls/' . $name);
         }
 

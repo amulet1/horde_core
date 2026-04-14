@@ -57,8 +57,6 @@ abstract class Horde_Themes_Css_Cache
     /**
      * Perform garbage collection.
      */
-    public function gc()
-    {
-    }
+    public function gc() {}
 
 }

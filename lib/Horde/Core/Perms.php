@@ -94,9 +94,9 @@ class Horde_Core_Perms
         /* Get the part of the app's permissions based on the permission
          * name requested. */
         $children = Horde_Array::getElement($perms['tree'], $levels);
-        if (($children === false) ||
-            !is_array($children) ||
-            !count($children)) {
+        if (($children === false)
+            || !is_array($children)
+            || !count($children)) {
             /* No array of children available for this permission name. */
             return false;
         }

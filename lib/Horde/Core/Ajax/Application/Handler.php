@@ -97,9 +97,9 @@ class Horde_Core_Ajax_Application_Handler
             return false;
         }
 
-        return ($method->isPublic() &&
-                !in_array($action, $this->_ignored) &&
-                ($method->getDeclaringClass()->name != __CLASS__));
+        return ($method->isPublic()
+                && !in_array($action, $this->_ignored)
+                && ($method->getDeclaringClass()->name != __CLASS__));
     }
 
     /**

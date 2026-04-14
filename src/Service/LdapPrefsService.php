@@ -44,8 +44,7 @@ class LdapPrefsService implements PrefsService
     public function __construct(
         private HordeLdapService $ldapService,
         private string $basedn
-    ) {
-    }
+    ) {}
 
     /**
      * Get preference value

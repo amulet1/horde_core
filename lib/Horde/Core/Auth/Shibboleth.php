@@ -24,8 +24,8 @@ class Horde_Core_Auth_Shibboleth extends Horde_Auth_Shibboleth
      */
     public function validateAuth()
     {
-        if (!empty($_SERVER[$this->getParam('username_header')]) &&
-            ($this->_removeScope($_SERVER[$this->getParam('username_header')]) == $GLOBALS['registry']->getAuth('original'))) {
+        if (!empty($_SERVER[$this->getParam('username_header')])
+            && ($this->_removeScope($_SERVER[$this->getParam('username_header')]) == $GLOBALS['registry']->getAuth('original'))) {
             return true;
         }
 

@@ -131,7 +131,7 @@ class ResponsiveTemplateView
         if ($value === null) {
             return '';
         }
-        return htmlspecialchars((string)$value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        return htmlspecialchars((string) $value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
     }
 
     /**

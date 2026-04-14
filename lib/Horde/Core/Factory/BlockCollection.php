@@ -56,8 +56,8 @@ class Horde_Core_Factory_BlockCollection extends Horde_Core_Factory_Base
         $sig = hash('md5', json_encode([$apps, $layout]));
 
         if (!isset($this->_instances[$sig])) {
-            $this->_instances[$sig] =
-                new Horde_Core_Block_Collection($apps, $layout);
+            $this->_instances[$sig]
+                = new Horde_Core_Block_Collection($apps, $layout);
         }
 
         return $this->_instances[$sig];

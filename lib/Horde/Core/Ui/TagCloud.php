@@ -122,8 +122,8 @@ class Horde_Core_Ui_TagCloud
             $this->_elements[$i]['count'] += $count;
 
             // Keep the latest timestamp
-            if (!empty($timestamp) &&
-                $timestamp > $this->_elements[$i]['timestamp']) {
+            if (!empty($timestamp)
+                && $timestamp > $this->_elements[$i]['timestamp']) {
                 $this->_elements[$i]['timestamp'] = $timestamp;
             }
             // For onclick and url we will simply overwrite the existing values
@@ -296,7 +296,7 @@ class Horde_Core_Ui_TagCloud
      */
     protected function _getCountLevel($count = 0)
     {
-        return (int)((sqrt($count) - sqrt($this->_min)) * $this->factor);
+        return (int) ((sqrt($count) - sqrt($this->_min)) * $this->factor);
     }
 
     /**
@@ -308,7 +308,7 @@ class Horde_Core_Ui_TagCloud
      */
     protected function _getEpocLevel($timestamp = 0)
     {
-        return (int)((sqrt($timestamp) - sqrt($this->_min_epoc)) * $this->epoc_factor);
+        return (int) ((sqrt($timestamp) - sqrt($this->_min_epoc)) * $this->epoc_factor);
     }
 
     /**
