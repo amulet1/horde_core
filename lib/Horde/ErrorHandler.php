@@ -145,6 +145,7 @@ class Horde_ErrorHandler
 
                     // Former E_STRICT, kept for backwards compatibility.
                 case 2048:
+                case E_USER_DEPRECATED:
                     $options['notracelog'] = true;
                     $priority = Horde_Log::DEBUG;
                     break;
@@ -154,7 +155,19 @@ class Horde_ErrorHandler
                     break;
             }
 
-            Horde::log(new ErrorException('PHP ERROR: ' . $errstr, 0, $errno, $errfile, $errline), $priority, $options);
+            if ($errno === E_USER_DEPRECATED) {
+                $prefix = 'DEPRECATED';
+                if (preg_match('/^(.+)\s*\[(.+):(\d+)\]$/', $errstr, $matches)) {
+                    $errstr = $matches[1];
+                    $errfile = $matches[2];
+                    $errline = (int) $matches[3];
+                }
+            } else {
+                $prefix = 'PHP ERROR';
+            }
+            $errstr = $prefix . ': ' . $errstr;
+
+            Horde::log(new ErrorException($errstr, 0, $errno, $errfile, $errline), $priority, $options);
         } catch (Exception $e) {
         }
     }
