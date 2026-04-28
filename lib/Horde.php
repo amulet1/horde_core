@@ -13,6 +13,8 @@
  * @package  Core
  */
 
+use Horde\Util\ArrayUtils;
+
 /**
  * Provides the base functionality shared by all Horde applications.
  *
@@ -408,54 +410,44 @@ class Horde
      *                        The used configuration array will be
      *                        $conf[$backend]. If an array gets passed, it will
      *                        be $conf[$key1][$key2].
-     * @param string $type    The type of driver. If null, will not merge with
+     * @param ?string $type   The type of driver. If null, will not merge with
      *                        base config.
      *
      * @return array  The connection parameters.
      */
-    public static function getDriverConfig($backend, $type = 'sql')
+    public static function getDriverConfig($backend, ?string $type = 'sql'): array
     {
         global $conf;
 
-        if (!is_null($type)) {
-            $type = Horde_String::lower($type);
-        }
-
-        if (is_array($backend)) {
-            $c = Horde_Array::getElement($conf, $backend);
-        } elseif (isset($conf[$backend])) {
-            $c = $conf[$backend];
+        if ($type === null) {
+            $confType = [];
         } else {
-            $c = null;
+            $type = Horde_String::lower($type);
+            $confType = $conf[$type] ?? [];
         }
 
-        if (!is_null($c) && isset($c['params'])) {
-            $c['params']['umask'] = $conf['umask'];
+        $c = $backend !== null ? ArrayUtils::getElement($conf, $backend) : null;
 
-            $result = (!is_null($type) && isset($conf[$type]))
-                ? array_merge($conf[$type], $c['params'])
-                : $c['params'];
+        if (is_array($c)) {
+            $params = $c['params'] ?? null;
+            if (is_array($params)) {
+                $params['umask'] = $conf['umask'];
 
-            // HOTFIX for Bug #14547. If using different protocols for the
-            // base SQL config and the explicit driver we are creating, we
-            // need to remove the not-used connection config since they use
-            // different keys.
-            if ((!isset($c['params']['driverconfig'])
-                 || $c['params']['driverconfig'] != 'horde')
-                && !is_null($type) && $type == 'sql') {
-                if (($c['params']['protocol'] ?? null) == 'unix') {
-                    unset($result['hostspec'], $result['port']);
-                } else {
-                    unset($result['socket']);
+                $result = array_merge($confType, $params);
+
+                if ($type === 'sql' && ($params['driverconfig'] ?? null) !== 'horde') {
+                    if (($params['protocol'] ?? null) === 'unix') {
+                        unset($result['hostspec'], $result['port']);
+                    } else {
+                        unset($result['socket']);
+                    }
                 }
-            }
 
-            return $result;
+                return $result;
+            }
         }
 
-        return (!is_null($type) && isset($conf[$type]))
-            ? $conf[$type]
-            : [];
+        return $confType;
     }
 
     /**
